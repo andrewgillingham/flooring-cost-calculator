@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { ChangeEvent, SyntheticEvent, useEffect, useState } from "react";
 import styles from "../styles/Home.module.css";
 import { useStickyState } from "../utils/hooks";
 import { Room } from "../utils/interfaces";
@@ -9,6 +9,7 @@ const deepmerge = require("deepmerge");
 
 export default function Home() {
   const [sqFt, setSqFt] = useState<number>(0);
+  const [productName, setProductName] = useState("");
 
   const [rooms, updateRooms] = useStickyState([], "rooms");
   const [products, updateProducts] = useStickyState([], "products");
@@ -65,6 +66,20 @@ export default function Home() {
     setSqFt(footage);
   }, [rooms]);
 
+  const handleProductNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.value) {
+      setProductName(e.target.value);
+    }
+  };
+
+  const addProduct = (e: SyntheticEvent) => {
+    e.preventDefault();
+    if (productName) {
+      updateProducts([...products, productName]);
+      setProductName("");
+    }
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -119,11 +134,17 @@ export default function Home() {
         </div>
         <div>
           <h2>Products</h2>
-          <ProductRow title="Bona Sealer" footage={sqFt}></ProductRow>
-          <ProductRow title="Bona Finish" footage={sqFt}></ProductRow>
-          <ProductRow title="Vermont PolyWhey 3000 Sealer" footage={sqFt}></ProductRow>
-          <ProductRow title="Vermont PolyWhey 3500 Finish" footage={sqFt}></ProductRow>
-          <ProductRow title="Vermeister" footage={sqFt}></ProductRow>
+          <div>
+            <form method="post" onSubmit={addProduct}>
+              <input value={productName} type="text" onChange={handleProductNameChange} />
+              <p>
+                <button type="submit">Add Product</button>
+              </p>
+            </form>
+          </div>
+          {products.map((product: string, k: number) => (
+            <ProductRow key={k} title={product} footage={sqFt}></ProductRow>
+          ))}
           <p>
             <button onClick={clear}>Clear Data</button>
           </p>
