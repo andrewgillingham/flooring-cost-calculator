@@ -1,7 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { useStickyState } from "../utils/hooks";
 import styles from "../styles/Home.module.css";
-import { Room } from "../utils/interfaces";
 
 interface Props {
   title: string;

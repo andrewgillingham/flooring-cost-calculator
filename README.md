@@ -2,6 +2,8 @@
 
 A fun, small demo Next.js app used to quickly calculate the cost of flooring products.
 
+[http://flooring-cost-calculator.vercel.app/](http://flooring-cost-calculator.vercel.app/)
+
 ## Getting Started
 
 First, run the development server:
