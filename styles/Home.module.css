@@ -1,20 +1,23 @@
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
 }
 
 .main {
   padding: 5rem 0;
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  max-width: 120rem;
+}
+
+.main > div {
+  width: 55rem;
+  max-width: 100%;
 }
 
 .footer {
@@ -65,8 +68,8 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace;
 }
 
 .grid {
@@ -118,4 +121,30 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.formrow {
+  /* margin-bottom: 3rem; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: center;
+  gap: 2rem;
+}
+
+.formrow > *:last-child {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.formrow > *:last-child:hover {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.productrow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: end;
+  gap: 2rem;
 }
