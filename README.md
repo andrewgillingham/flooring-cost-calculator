@@ -1,6 +1,6 @@
 # Flooring Cost Calculator
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/organization/repository)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/andrewgillingham/flooring-cost-calculator)
 
 A fun, small demo Next.js app used to quickly calculate the cost of flooring products.
 
